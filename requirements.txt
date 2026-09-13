@@ -1,0 +1,21 @@
+# Web Framework & Server
+fastapi==0.115.11
+uvicorn[standard]==0.34.0
+
+# Database - Direct connection (no SRV needed)
+pymongo==4.10.1
+
+# AI Framework (Core)
+langchain==0.3.21
+langgraph==1.0.1
+langchain-openai==0.3.8
+
+# Data Validation
+pydantic==2.10.6
+pydantic-settings==2.7.0
+email-validator==2.2.0
+
+# Utilities
+python-dotenv==1.0.1
+httpx==0.28.1
+python-multipart==0.0.20

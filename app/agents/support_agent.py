@@ -1,10 +1,10 @@
 # app/agents/support_agent.py
+from langchain.agents import create_agent
 from langchain_openai import ChatOpenAI
-from langgraph.prebuilt import create_react_agent
 
 from .tools import get_lead_status
 
-SUPPORT_PROMPT = """You are a helpful customer support agent for a software services company.
+SUPPORT_PROMPT = """You are a helpful customer support agent for a software services company name FutureSoftz.
 
 Your job is to help customers check the status of their existing leads.
 
@@ -19,9 +19,8 @@ Your job is to help customers check the status of their existing leads.
 
 def create_support_agent(llm: ChatOpenAI):
     """Create the Support specialist agent with tools bound."""
-    return create_react_agent(
-        llm,
+    return create_agent(
+        model=llm,
         tools=[get_lead_status],
-        prompt=SUPPORT_PROMPT,
-        name="support_agent",
+        system_prompt=SUPPORT_PROMPT,
     )

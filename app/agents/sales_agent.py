@@ -1,14 +1,11 @@
 # app/agents/sales_agent.py
-from langchain_core.messages import SystemMessage, AIMessage
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain.agents import create_agent
 from langchain_openai import ChatOpenAI
-from langgraph.prebuilt import create_react_agent
-
 from .tools import get_services, create_lead
 
-SALES_PROMPT = """You are a friendly and professional sales agent for a software services company.
+SALES_PROMPT = """You are a friendly and professional sales agent for a software services company name FutureSoftz.
 
-Your goal is to qualify leads and create new leads in the CRM system.
+Your goal is to qualify leads and create new leads in the CRM system. You can also tell customers about the services offered by the company using the `get_services` tool.
 
 ## Qualification Flow
 You must gather ALL of the following information before calling `create_lead`:
@@ -32,9 +29,8 @@ You must gather ALL of the following information before calling `create_lead`:
 
 def create_sales_agent(llm: ChatOpenAI):
     """Create the Sales specialist agent with tools bound."""
-    return create_react_agent(
-        llm,
+    return create_agent(
+        model=llm,
         tools=[get_services, create_lead],
-        prompt=SALES_PROMPT,
-        name="sales_agent",
+        system_prompt=SALES_PROMPT,
     )

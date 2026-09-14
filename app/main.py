@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from database.mongodb import MongoDB
-from routes import leads, services
+from routes import leads, services, chat
 
 app = FastAPI(
     title="AI Lead Management System",

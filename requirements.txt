@@ -5,10 +5,17 @@ uvicorn[standard]==0.34.0
 # Database - Direct connection (no SRV needed)
 pymongo==4.10.1
 
-# AI Framework (Core)
-langchain==0.3.21
-langgraph==1.0.1
-langchain-openai==0.3.8
+# AI Framework (Core) - updated to v1
+langchain==1.4.0
+langchain-core==1.6.3
+langchain-openai==1.6.2
+langgraph==1.2.11
+langgraph-checkpoint==4.2.0
+langgraph-prebuilt==1.1.0
+langgraph-sdk==0.4.4
+
+# OpenAI SDK (pulled in by langchain-openai 1.6.2)
+openai==3.13.0
 
 # Data Validation
 pydantic==2.10.6

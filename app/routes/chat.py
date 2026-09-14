@@ -6,8 +6,8 @@ from typing import Optional
 from langchain_core.messages import HumanMessage
 from langgraph.checkpoint.memory import MemorySaver
 
-from app.agents.supervisor_graph import build_agent_graph
-from app.agents.state import MultiAgentState
+from agents.supervisor import build_agent_graph
+from agents.state import MultiAgentState
 
 router = APIRouter(prefix="/api", tags=["Chat"])
 
